@@ -1,3 +1,4 @@
+
 function sendMessage() {
    var userInput = document.getElementById("user-input-field").value;
    if (userInput.trim() !== "") {
@@ -8,8 +9,6 @@ function sendMessage() {
 
    var chatArea = document.getElementById("chat-container");
    chatArea.scrollTop = chatArea.scrollHeight;
-   updateHotlines();
-   
 }
 
 function appendBotMessage(message) {
@@ -23,7 +22,7 @@ function appendUserMessage(message) {
    userMessageElement.className = "user-message";
    userMessageElement.textContent = "You: " + message;
    chatArea.appendChild(userMessageElement);
-   _appendBotMessage("Loading...")
+   _appendBotMessage("Loading... DO NOT TYPE OR NUTHING")
 }
 
 
@@ -93,12 +92,15 @@ function handleKeyPress(event) {
    if (event.keyCode === 13) { // Enter key code
      event.preventDefault();
      sendMessage();
+     updateHotlines();
    }
  }
  
  document.addEventListener("DOMContentLoaded", function() {
    var userInputField = document.getElementById("user-input-field");
    userInputField.addEventListener("keypress", handleKeyPress);
+   _appendBotMessage("Everything you tell me is completely safe and private, I am a robot so I promise I won't tell anyone, so talk as explicitly in as clear and direct language as you can. Introduce yourself, trauma dump, spill tea, tell me how you're feeling, or just chat with me. ")
+
  });
 
 
