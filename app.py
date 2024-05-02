@@ -3,13 +3,12 @@ import re
 import random
 import back
 import datetime
-import openai
 from back import Chat
 
 conversation = Chat()
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
-
+/
 @app.route('/')
 def menu():
     return render_template('chat.html')
